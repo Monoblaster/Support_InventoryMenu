@@ -1,0 +1,31 @@
+InventoryMenu_Create(%name)
+    -returns a new menu object with the object name of %name
+
+InventoryMenuItem_Create(%refName,%name,%iconPath,%colorShift,%colorShiftColor)
+    -returns a new menu item object with the object name of ("InventoryMenuItem" @ %name), ui name of %name, icon of %iconPath,
+    and if %colorshift is true color shift color of %colorShiftColor
+
+InventoryMenu::AddItem(%item,%callBack,%selectCallback,%row)
+    -adds a menu item to the menu. You can specify a callback for when the menu item is clicked with %callback and a callback 
+    for when it is selected with %selectCallback. You can also specify a row for it be inserted with %row.
+
+InventoryMenu::setItem(%row,%item,%useCallback,%selectCallback)
+    -sets a menu item in the menu. Same descriptions as InventoryMenu::AddItem.
+
+There are other list functions that can be used as this uses my list library
+
+InventoryMenu_Push(%client,%menu)
+    -pushes the menu object onto the inventory menu stack on a client. The menu on top of the stack will be the current menu.
+    -The most recently pushed menu will be the current menu.
+
+InventoryMenu_Pop(%client)
+    -pops the current menu object off of the inventroy menu stack on a client. This will remove the top menu and make 
+    the next highest menuthe current menu.
+
+InventoryMenu_ClearAll(%client)
+    -pops all menus on a client until you only have the player's inventory left.
+
+InventoryMenu_SetPos(%client,%pos)
+    -sets the selection position of a menu on a client to %pos. This position relates to the actual menu and not item slots.
+    If you have a menu with 9 menu items setting pos to 8 will set the item selection to the last item.
+
